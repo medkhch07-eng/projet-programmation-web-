@@ -1,0 +1,181 @@
+# DONNÉES D'EXEMPLE POUR TESTER L'APPLICATION
+================================================
+
+## PRODUITS D'EXEMPLE
+-------------------
+
+### Produit 1
+Nom: Lait Frais Candia 1L
+Catégorie: Produits laitiers
+Quantité: 20
+Prix d'achat: 80 DZD
+Prix de vente: 100 DZD
+Date d'expiration: 2026-05-01
+Fournisseur: Candia Algérie
+Code-barres: 6111012345678
+Notes: Conserver au frais
+
+### Produit 2
+Nom: Pain de Mie
+Catégorie: Alimentation
+Quantité: 15
+Prix d'achat: 50 DZD
+Prix de vente: 70 DZD
+Date d'expiration: 2026-04-28
+Fournisseur: Boulangerie Locale
+Code-barres: 6111087654321
+Notes: Vérifier la date quotidiennement
+
+### Produit 3
+Nom: Coca-Cola 1.5L
+Catégorie: Boissons
+Quantité: 30
+Prix d'achat: 90 DZD
+Prix de vente: 120 DZD
+Date d'expiration: 2027-01-01
+Fournisseur: Coca-Cola Algérie
+Code-barres: 6111011111111
+Notes: Stockage à température ambiante
+
+### Produit 4
+Nom: Yaourt Danone Nature
+Catégorie: Produits laitiers
+Quantité: 50
+Prix d'achat: 25 DZD
+Prix de vente: 35 DZD
+Date d'expiration: 2026-04-25 (Expirera bientôt!)
+Fournisseur: Danone Djurdjura
+Code-barres: 6111022222222
+Notes: Réfrigération obligatoire
+
+### Produit 5
+Nom: Huile d'Olive 1L
+Catégorie: Alimentation
+Quantité: 10
+Prix d'achat: 600 DZD
+Prix de vente: 800 DZD
+Date d'expiration: 2027-12-31
+Fournisseur: Ifri
+Code-barres: 6111033333333
+Notes: Qualité premium
+
+## DETTES D'EXEMPLE (KARNI)
+-------------------------
+
+### Dette 1
+Nom client: Ahmed Benali
+Téléphone: 0555123456
+Montant: 3500 DZD
+Date d'échéance: 2026-05-15
+Description: Achats du mois d'avril
+Notes: Client régulier, bon payeur
+
+### Dette 2
+Nom client: Fatima Meziane
+Téléphone: 0666789012
+Montant: 6500 DZD (MONTANT ÉLEVÉ!)
+Date d'échéance: 2026-05-01
+Description: Achats pour fête familiale
+Notes: À surveiller - montant important
+
+### Dette 3
+Nom client: Karim Saidi
+Téléphone: 0777345678
+Montant: 2000 DZD
+Date d'échéance: 2026-04-20 (EN RETARD!)
+Description: Achats du 10 avril
+Notes: Relancer le client
+
+### Dette 4
+Nom client: Meriem Larbi
+Téléphone: 0555987654
+Montant: 4200 DZD
+Date d'échéance: 2026-06-01
+Description: Achats réguliers
+Notes: Paiement partiel de 1000 DZD reçu
+
+## SCÉNARIOS DE TEST
+-------------------
+
+### Test 1: Vendre un produit
+1. Aller dans "Produits"
+2. Trouver "Coca-Cola 1.5L"
+3. Cliquer sur l'icône panier
+4. Vendre 5 unités
+5. Vérifier dans "Ventes" que la transaction est enregistrée
+6. Vérifier que la quantité en stock a diminué
+
+### Test 2: Enregistrer un paiement de dette
+1. Aller dans "Dettes (Karni)"
+2. Trouver "Meriem Larbi"
+3. Cliquer sur l'icône check
+4. Payer 2000 DZD supplémentaires
+5. Vérifier que le montant restant est calculé
+6. La dette est maintenant à 4200 - 3000 = 1200 DZD
+
+### Test 3: Vérifier les alertes
+1. Aller dans "Alertes"
+2. Vous devriez voir:
+   - Yaourt Danone (proche d'expiration)
+   - Dette de Karim Saidi (en retard)
+   - Dette de Fatima Meziane (montant élevé)
+
+### Test 4: Ajouter un produit qui va expirer
+1. Aller dans "Produits"
+2. Ajouter un nouveau produit
+3. Mettre une date d'expiration dans 5 jours
+4. Sauvegarder
+5. Vérifier qu'il apparaît dans les alertes
+
+### Test 5: Analyser les ventes
+1. Faire plusieurs ventes
+2. Aller dans "Ventes"
+3. Consulter les statistiques
+4. Vérifier les profits calculés
+5. Filtrer par "Aujourd'hui"
+
+## STATISTIQUES ATTENDUES (avec données d'exemple)
+------------------------------------------------
+
+### Stock
+- Valeur totale du stock: environ 10,500 DZD
+- Revenus potentiels: environ 14,000 DZD
+- Profit potentiel: environ 3,500 DZD
+
+### Dettes
+- Total des dettes: 16,200 DZD
+- Dettes non payées: 4 dettes
+- Montant non payé: environ 15,200 DZD
+
+### Alertes
+- Produits proches d'expiration: 1 (Yaourt Danone)
+- Dettes en retard: 1 (Karim Saidi)
+- Dettes montant élevé: 1 (Fatima Meziane)
+
+## NOTES IMPORTANTES
+-------------------
+
+✅ Adaptez les dates selon la date actuelle du test
+✅ Les montants sont en Dinars Algériens (DZD)
+✅ Testez toutes les fonctionnalités CRUD
+✅ Vérifiez que les calculs sont corrects
+✅ Testez sur mobile et desktop
+✅ Vérifiez que les Cron Jobs s'affichent dans la console
+
+## VÉRIFICATION FINALE
+--------------------
+
+Avant de soumettre le projet, vérifiez que:
+
+1. ✅ Tous les boutons fonctionnent
+2. ✅ La navigation entre pages est fluide
+3. ✅ Les formulaires valident correctement
+4. ✅ Les alertes s'affichent
+5. ✅ Les calculs sont exacts
+6. ✅ Le design est cohérent
+7. ✅ Responsive fonctionne
+8. ✅ Pas d'erreurs dans la console
+9. ✅ MongoDB est bien connecté
+10. ✅ Les données persistent après redémarrage
+
+Bon test! 🚀

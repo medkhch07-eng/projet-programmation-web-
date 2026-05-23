@@ -1,0 +1,226 @@
+🚀 GUIDE DE DÉMARRAGE RAPIDE - Smart Inventory Assistant
+=======================================================
+
+📋 ÉTAPES D'INSTALLATION
+------------------------
+
+1️⃣ INSTALLER NODE.JS (si pas déjà installé)
+   → Télécharger: https://nodejs.org/
+   → Version recommandée: LTS (Long Term Support)
+   → Vérifier l'installation:
+     node --version
+     npm --version
+
+2️⃣ INSTALLER MONGODB
+   
+   OPTION A - MongoDB Local (Windows):
+   → Télécharger: https://www.mongodb.com/try/download/community
+   → Installer avec les options par défaut
+   → MongoDB démarrera automatiquement comme service
+   
+   OPTION B - MongoDB Atlas (Cloud - RECOMMANDÉ):
+   → Créer compte gratuit: https://www.mongodb.com/cloud/atlas
+   → Créer un cluster gratuit
+   → Obtenir la connection string
+   → Modifier backend/server.js ligne 12 avec votre connection string
+
+3️⃣ INSTALLER LES DÉPENDANCES DU PROJET
+   
+   Terminal 1 - Backend:
+   -----------------
+   cd smart-inventory-mern/backend
+   npm install
+   
+   Terminal 2 - Frontend:
+   ------------------
+   cd smart-inventory-mern/frontend
+   npm install
+
+4️⃣ DÉMARRER L'APPLICATION
+   
+   Terminal 1 - Backend (garder ouvert):
+   ----------------------------------
+   cd backend
+   npm run dev
+   
+   ✅ Vous verrez: "Server running on port 5000"
+   ✅ Et: "MongoDB connected successfully"
+   
+   Terminal 2 - Frontend (garder ouvert):
+   -----------------------------------
+   cd frontend
+   npm start
+   
+   ✅ Le navigateur s'ouvre automatiquement sur http://localhost:3000
+
+🎯 UTILISATION RAPIDE
+--------------------
+
+1. Page d'Accueil (Dashboard)
+   → Vue d'ensemble de toutes les statistiques
+   → Alertes importantes
+
+2. Ajouter un Produit
+   → Cliquer sur "Produits" dans le menu
+   → Cliquer sur "+ Ajouter un Produit"
+   → Remplir le formulaire
+   → Soumettre
+
+3. Enregistrer une Vente
+   → Dans la page Produits
+   → Cliquer sur l'icône panier (🛒) d'un produit
+   → Entrer la quantité à vendre
+   → La vente est automatiquement enregistrée
+
+4. Ajouter une Dette
+   → Cliquer sur "Dettes (Karni)" dans le menu
+   → Cliquer sur "+ Ajouter une Dette"
+   → Remplir les informations client
+   → Soumettre
+
+5. Payer une Dette
+   → Dans la page Dettes
+   → Cliquer sur l'icône check (✓) d'une dette
+   → Entrer le montant payé
+   → Le système calcule le reste automatiquement
+
+6. Voir les Alertes
+   → Cliquer sur "Alertes" dans le menu
+   → Consulter tous les produits/dettes nécessitant attention
+
+⚙️ CONFIGURATION MONGODB
+-----------------------
+
+Par défaut, l'app utilise: mongodb://localhost:27017/smartinventory
+
+Pour MongoDB Atlas (Cloud):
+1. Obtenir votre connection string de MongoDB Atlas
+2. Ouvrir: backend/server.js
+3. Ligne 12, remplacer:
+   mongoose.connect("mongodb://localhost:27017/smartinventory")
+   Par:
+   mongoose.connect("votre-connection-string-atlas")
+
+🎨 FONCTIONNALITÉS AUTOMATIQUES
+------------------------------
+
+L'application vérifie automatiquement:
+
+• Tous les jours à 9h00:
+  → Produits proches d'expiration (7 jours)
+  → Affichage dans la console du serveur
+
+• Tous les jours à 18h00:
+  → Dettes dépassant 5000 DZD
+  → Affichage dans la console du serveur
+
+🐛 PROBLÈMES COURANTS
+--------------------
+
+❌ "MongoDB connection error"
+   → Vérifier que MongoDB est démarré
+   → Vérifier la connection string
+   → Essayer MongoDB Atlas
+
+❌ "Port 5000 already in use"
+   → Un autre programme utilise le port 5000
+   → Fermer l'autre application
+   → Ou changer le port dans backend/.env
+
+❌ "Cannot GET /api/..."
+   → Le backend n'est pas démarré
+   → Démarrer: cd backend && npm run dev
+
+❌ Le frontend ne charge pas
+   → Vérifier que vous êtes dans le bon dossier
+   → Essayer: npm install puis npm start
+
+📱 PORTS UTILISÉS
+----------------
+
+Backend:  http://localhost:5000
+Frontend: http://localhost:3000
+MongoDB:  localhost:27017
+
+🔥 COMMANDES UTILES
+------------------
+
+Redémarrer le backend:
+   Ctrl+C (arrêter)
+   npm run dev (redémarrer)
+
+Redémarrer le frontend:
+   Ctrl+C (arrêter)
+   npm start (redémarrer)
+
+Vérifier MongoDB:
+   mongo (dans un terminal)
+   ou utiliser MongoDB Compass
+
+Voir les logs:
+   Les deux terminaux affichent les logs en temps réel
+
+📦 STRUCTURE DES DONNÉES
+-----------------------
+
+Produit:
+- Nom, Catégorie, Quantité
+- Prix d'achat, Prix de vente
+- Date d'expiration
+- Fournisseur, Code-barres
+
+Dette:
+- Nom client, Téléphone
+- Montant total, Montant payé
+- Date d'échéance
+- Description
+
+Vente:
+- Produit vendu, Quantité
+- Prix, Revenus, Profits
+- Client, Mode de paiement
+- Date
+
+✅ VÉRIFICATION DE L'INSTALLATION
+--------------------------------
+
+1. Backend fonctionne:
+   → Ouvrir http://localhost:5000
+   → Vous devez voir: "Smart Inventory API is running"
+
+2. Frontend fonctionne:
+   → Ouvrir http://localhost:3000
+   → Vous devez voir la page d'accueil colorée
+
+3. MongoDB connecté:
+   → Dans le terminal du backend
+   → Vous devez voir: "MongoDB connected successfully"
+
+🎓 AIDE SUPPLÉMENTAIRE
+---------------------
+
+Consultez le fichier README.md pour:
+- Documentation complète
+- Liste de tous les endpoints API
+- Détails techniques
+- Architecture du projet
+
+💡 ASTUCES
+---------
+
+• Gardez les deux terminaux (backend + frontend) ouverts
+• Utilisez VS Code pour éditer le code
+• MongoDB Compass pour visualiser la base de données
+• Ctrl+C pour arrêter un serveur
+• F5 pour rafraîchir le navigateur
+
+📧 EN CAS DE PROBLÈME
+--------------------
+
+1. Vérifier que Node.js est installé: node --version
+2. Vérifier que MongoDB est accessible
+3. Vérifier que les deux serveurs tournent
+4. Vérifier la console pour les erreurs
+5. Lire les messages d'erreur attentivement
+
+Bon développement! 🚀🌸
